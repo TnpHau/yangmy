@@ -227,28 +227,28 @@ window.addEventListener('scroll', function () {
   const tikVideo = document.getElementById('tikVideo');
 
   if (scrollingDown) {
-    if (window.scrollY < (Video + windowHeight / 7)) {
+    if (window.scrollY < (Video + windowHeight / 4)) {
       window.location.hash = '#Video';
       tikVideo.autoplay = true;
       tikVideo.play();
-    } else if (window.scrollY < (grapter + windowHeight / 7)) {
+    } else if (window.scrollY < (grapter + windowHeight / 4)) {
       window.location.hash = '#grapter';
       endVideo.pause();
       tikVideo.pause();
+
     } else {
-      window.location.hash = '#end';
       endVideo.autoplay = true;
       endVideo.play();
     }
   } else {
-    if (window.scrollY >= (end - windowHeight / 7)) {
-      window.location.hash = '#end';
+    if (window.scrollY >= (end - windowHeight / 4)) {
       endVideo.autoplay = true;
       endVideo.play();
-    } else if (window.scrollY >= (grapter - windowHeight / 7)) {
+    } else if (window.scrollY >= (grapter - windowHeight / 4)) {
       window.location.hash = '#grapter';
       endVideo.pause();
       tikVideo.pause();
+
     } else {
       window.location.hash = '#Video';
       tikVideo.autoplay = true;
@@ -256,27 +256,4 @@ window.addEventListener('scroll', function () {
     }
   }
 
-  // Tự phát video khi cuộn tới cuối trang
-  // const endSection = document.getElementById('end');
-  // const endSectionTop = endSection.offsetTop;
-
-  // if (window.scrollY >= (endSectionTop - windowHeight / 7)) {
-  //   endVideo.play();
-  // } else {
-  //   endVideo.pause();
-  // }
-
-  // // 
-  // const videoSection = document.getElementById('Video');
-  // const videoSectionTop = videoSection.offsetTop;
-
-  // if (window.scrollY >= (videoSectionTop - windowHeight / 7)) {
-  //   tikVideo.play();
-  // } else {
-  //   tikVideo.pause();
-  // }
 });
-
-
-
-// Chạy lại animations

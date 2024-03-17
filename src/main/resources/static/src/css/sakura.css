@@ -498,7 +498,7 @@ textarea {
   max-width: 500px;
   margin: 0 auto;
   padding: 20px;
-  height: 80vh;
+  height: 150vh;
   justify-content: flex-end;
   display: flex;
   flex-direction: column;
