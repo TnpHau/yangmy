@@ -1,0 +1,617 @@
+html {
+  background-color: #f8e5f085;
+}
+
+body {
+  font-family: Arial, Helvetica, Sans-serif;
+  margin: auto;
+  padding: 0;
+  width: 800px;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.top-right-decoration,
+.top-left-decoration {
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 40%;
+  animation-duration: 3s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+}
+
+.top-right-decoration {
+  right: 0;
+  animation-name: none;
+}
+
+.top-left-decoration {
+  left: 0;
+  animation-name: none;
+}
+
+.top-left-decoration {
+  animation-name: shake-left;
+}
+
+.top-right-decoration {
+  animation-name: shake-right;
+}
+
+/* Hiệu ứng rung lắc hoa đào*/
+@keyframes shake {
+  0% {
+    transform: translateY(-10px) rotateZ(0deg);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateY(5px) rotateZ(-5deg);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateY(10px) rotateZ(5deg);
+  }
+
+  100% {
+    transform: translateY(0) rotateZ(0deg);
+  }
+}
+
+@keyframes shake-left {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px) rotateZ(2deg);
+    /* Điều chỉnh vị trí rung lắc */
+  }
+}
+
+@keyframes shake-right {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px) rotateZ(-2deg);
+    /* Điều chỉnh vị trí rung lắc */
+  }
+}
+
+/*Xuất hiện cây anh đào*/
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hiện chữ */
+@keyframes appear2 {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hiện thiệp cưới */
+@keyframes vanish1 {
+  0% {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: rotateY(90deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotateY(180deg);
+  }
+}
+
+@keyframes vanish {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+/* Kéo cửa */
+
+@keyframes moveOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes moveIn {
+  0% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+}
+
+/*  */
+
+.decoration-container,
+.title img,
+.title h1,
+.title h2,
+.layout-thiep-moi {
+  opacity: 0;
+}
+
+.decoration-container {
+  animation: appear 1.5s ease-out forwards;
+  animation-delay: 0.5s;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title img {
+  width: 40%;
+  margin-bottom: 20px;
+  animation: appear2 2s ease-out forwards, vanish1 1s ease-in-out forwards;
+  animation-delay: 1s, 3s;
+}
+
+.title h1 {
+  font-family: "Edwardian Script ITC", cursive;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 100px;
+  margin: 0px 0;
+  color: #c92a2a;
+  animation: appear2 1.5s ease-out forwards, vanish1 1s ease-in-out forwards;
+  ;
+  animation-delay: 1.5s, 3s;
+}
+
+.title h2 {
+  font-family: "Dancing Script", cursive;
+  font-weight: normal;
+  font-style: normal;
+  margin: 20px;
+  padding: 0;
+  font-size: 35px;
+  color: #d84450;
+  line-height: 1;
+  animation: appear2 1s ease-out forwards, vanish1 1s ease-in-out forwards;
+  animation-delay: 2s, 3s;
+}
+
+/*Chia thiep moi*/
+.layout-thiep-moi {
+  display: none;
+  text-align: center;
+  grid-template-columns: 1fr;
+  padding: 40px 50px;
+  animation: vanish 3s ease-in-out forwards;
+  top: 1%;
+  position: relative;
+  z-index: 0;
+}
+
+.layout-item-thiep h1 {
+  font-family: "Edwardian Script ITC", cursive;
+  font-size: 60px;
+  color: #c92a2a;
+}
+
+.layout-item-thiep {
+  text-align: center;
+  overflow: hidden;
+  background-color: white;
+  border: 2px solid #ccc;
+  width: 100%;
+  height: 100%;
+}
+
+.layout-item-thiep h4,
+p {
+  font-size: 60%;
+}
+
+/* .layout-item-thiep img {
+  width: 100%;
+  height: auto;
+} */
+
+/* Logo  */
+.logo-img img {
+  opacity: 0;
+  animation: appear 3s ease-out forwards;
+  animation-delay: 1s;
+}
+
+/* Video - chibi */
+.video-chibi {
+  background: linear-gradient(to right bottom, rgb(255 255 255), rgb(255 222 237 / 37%));
+  /* background-image: url(/src/img/NenHong.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; */
+  background-position: center;
+  display: grid;
+  grid-template-columns: 15% 35% 35% 15%;
+  grid-template-rows: 15% 70% 15%;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.layout-video-chibi {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.layout-video-chibi:first-child {
+  grid-column: 1/3;
+  grid-row: 1/4;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.layout-video-chibi:nth-child(2) {
+  grid-column: 2/4;
+  grid-row: 1/4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.layout-video-chibi:nth-child(3) {
+  grid-column: 3/5;
+  grid-row: 1/4;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.video-chibi video {
+  max-width: 100%;
+  max-height: 100%;
+  height: 80vh;
+  opacity: 0;
+  animation: appear 3s ease-out forwards;
+  animation-delay: 1s;
+}
+
+.img_c {
+  background: rgba(255, 233, 236, 0.523);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.layout-video-chibi img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.layout-video-chibi:first-child .img_c {
+  animation: moveOut 3s ease-in-out forwards;
+
+}
+
+.layout-video-chibi:nth-child(3) .img_c {
+  animation: moveIn 3s ease-in-out forwards;
+}
+
+/* */
+.wrap {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+  border-radius: 3% 3%;
+  position: absolute;
+  top: 10%;
+}
+
+#grapter {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+/* .khoangCach {
+    height: 20vh;
+} */
+
+/* chia 3*/
+.layout {
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  height: 100vh;
+  align-items: center;
+  margin-top: 80%;
+}
+
+.layout-item {
+  text-align: center;
+  border-radius: 10px;
+  overflow: hidden;
+  align-items: center;
+}
+
+.anh_thiep {
+  width: 70%;
+  height: auto;
+}
+
+
+@media only screen and (max-width: 1000px) {
+
+  html,
+  body {
+    width: 100%;
+  }
+
+  .wrap {
+    background-size: 100%;
+  }
+
+  #grapter {
+    width: 100% !important;
+    height: 100vh;
+  }
+
+  .layout-thiep-moi h2 {
+    font-size: 25px !important;
+  }
+
+  .layout-thiep-moi h3 {
+    font-size: 30px !important;
+  }
+
+  .layout-thiep-moi h4 {
+    font-size: 230%;
+    margin: 0;
+  }
+
+  .layout-thiep-moi p {
+    font-size: 200% !important;
+    margin: 0;
+  }
+
+  .layout-p-item h2 {
+    font-size: 400% !important;
+    margin: 0;
+    font-family: "Bodoni MT Black";
+  }
+
+  .layout-thiep-moi h1 {
+    font-size: 95px;
+  }
+
+  .layout-thiep-moi {
+    grid-template-columns: 1fr;
+  }
+
+  .video-chibi video {
+    height: 100vh;
+    height: 100%;
+  }
+
+  .layout-video-chibi img {
+    width: 100%;
+    height: auto;
+  }
+
+  .root {
+    width: 100vw;
+  }
+
+  .title h1 {
+    font-size: 200px;
+  }
+
+  .title h2 {
+    font-size: 80px;
+  }
+
+  .layout {
+    height: 60vh !important;
+    margin: 0;
+  }
+
+  .khoangCach {
+    height: 0vh !important;
+  }
+
+  .container {
+    height: 25vh !important;
+  }
+
+  form {
+    height: 15vh !important;
+  }
+
+  .chuTrai {
+    padding: 0 470px 0 0 !important;
+  }
+
+  .chuPhai {
+    padding: 0 0 0 400px !important;
+  }
+
+  .NhamNgay {
+    margin: 0 0 20px 0 !important;
+  }
+}
+
+.layout-thiep-moi h2 {
+  font-size: 15px;
+}
+
+.layout-p-item h2 {
+  font-size: 250%;
+  margin: 0;
+  font-family: "Bodoni MT Black";
+}
+
+.layout-p-item h3 {
+  margin: 0;
+}
+
+.chuTrai {
+  padding: 0 270px 0 0;
+  color: rgb(89, 89, 89);
+  font-size: 20px;
+  margin: 0;
+}
+
+.chuPhai {
+  padding: 0 0 0 270px;
+  color: rgb(89, 89, 89);
+  font-size: 20px;
+  margin: 0;
+}
+
+.NhamNgay {
+  margin: 10px 0 20px 0;
+  font-style: italic;
+  color: #950000;
+  font-size: 20px;
+}
+
+.layout-thiep-moi h3 {
+  font-size: 20px;
+  font-style: italic;
+  margin: 0;
+}
+
+.layout-thiep-moi p {
+  font-size: 18px;
+}
+
+.p1 {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin: 0;
+}
+
+.p2 {
+  padding-bottom: 20px;
+  margin: 0;
+}
+
+.qr {
+  text-align: right;
+  padding: 60px 0 0 0;
+  background: transparent;
+}
+
+.btn-chuyen-tien {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.btn-chuyen-tien p {
+  margin: 0;
+}
+
+.btn-chuyen-tien {
+  display: inline-block;
+  padding: 0 0 20px 0;
+  color: #3893f4;
+  font-weight: bolder;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.btn-chuyen-tien:hover {
+  color: #b40404;
+}
+
+
+
+.layout-p {
+  display: grid;
+  grid-template-columns: 40% 5% 55%;
+}
+
+.vertical-line {
+  border-left: 1px solid #888;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.form-videoNe {
+  display: flex;
+  justify-content: center;
+  padding: 80px;
+}
+
+.form-videoNe video {
+  max-width: 100%;
+  max-height: 100%;
+}

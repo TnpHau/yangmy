@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Wedding</title>
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css}">
+    <link rel="stylesheet" th:href="@{/src/css/style.css}">
+    <link rel="stylesheet" th:href="@{/src/css/sakura.css}">
+
+
+</head>
+
+<body>
+<div class="root">
+    <div id="Video">
+        <div class="video-chibi">
+            <div class="layout-video-chibi">
+                <div class="img_c">
+                    <img th:src="@{/src/img/Leftgate.png}" alt="">
+                </div>
+
+            </div>
+            <div class="layout-video-chibi">
+                <video id="tikVideo">
+                    <source th:src="@{/video/tik.mp4}" type="video/mp4">
+                </video>
+            </div>
+            <div class="layout-video-chibi">
+                <div class="img_c">
+                    <img th:src="@{/src/img/Rightgate.png}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="grapter">
+
+        <!-- Hoa anh đào  -->
+        <div class="decoration-container">
+            <img th:src="@{/src/img/SakuraLeft.png}" alt="image-top-right" class="top-left-decoration">
+            <img th:src="@{/src/img/SakuraRight.png}" alt="image-top-left" class="top-right-decoration">
+        </div>
+
+        <!-- Hỷ -->
+        <div class="wrap">
+            <div class="title">
+                <img th:src="@{/src/img/Hy.png}" alt="">
+                <h1 style="padding-right:40px ;margin-top: 40px;">Yu Yang</h1>
+                <h2>&</h2>
+                <h1 style="padding-left:40px ;">Phuc My</h1>
+                <h2 style="margin-top: 60px;">20-04-2024</h2>
+            </div>
+        </div>
+
+        <!-- Thiep cuoi -->
+        <div class="layout-thiep-moi">
+            <div class="layout-item-thiep"><img class="anh_thiep" th:src="@{/src/img/thiep.jpg}" alt=""></div>
+            <div class="layout-item-thiep">
+                <h2 style="padding: 20px 0 20px 0">TRÂN TRỌNG KÍNH MỜI</h2>
+                <h1 class="TenNguoiDi" style="margin: 0;" th:text="${user.name}"></h1>
+                <h3>............................................................</h3>
+                <h2>TỚI THAM DỰ BUỔI TIỆC RƯỢU CHUNG VUI CÙNG </h2>
+                <h2>GIA ĐÌNH CHÚNG MÌNH</h2>
+                <h1>Hoang Pham Phuc My</h1>
+                <p class="chuTrai">Út nữ</p>
+                <i class="fa-regular fa-heart" style="font-size: 30px;color: red;"></i>
+                <p class="chuPhai">Trưởng nam</p>
+                <h1>Chen Yu Yang</h1>
+                <div class="layout-p" style="margin: 30px 0 0 0;">
+                    <div class="layout-p-item">
+                        <h3>Vào lúc</h3>
+                        <h2>11:00</h2>
+                    </div>
+                    <div class="layout-p-item">
+                        <div class="vertical-line"></div>
+                    </div>
+                    <div class="layout-p-item">
+                        <h3>Thứ Bảy</h3>
+                        <H2>20.04.2024</H2>
+                    </div>
+                </div>
+                <p class="NhamNgay">Nhằm ngày 12 tháng 03 năm 2024 Giáp Thìn</p>
+                <h3 style="padding-bottom: 10px;">TẠI TƯ GIA NHÀ GÁI</h3>
+                <h3>THÔN 14 - ĐẮK WER ĐẮK R' LẤP - ĐẮK NÔNG</h3>
+                <p class="p1">Sự hiện diện của Quý khách </p>
+                <p class="p2">Là niềm vinh hạnh của gia đình chúng tôi!</p>
+                <img th:src="@{/src/img/gtaq.png}" alt="">
+            </div>
+        </div>
+
+    </div>
+
+    <!--  -->
+    <div id="end">
+        <div class="container">
+            <p class="demNguoc">Đếm ngược đến ngày </p>
+            <p class="ngay">20.04.2024</p>
+            <div class="countdown">
+                <div class="time-unit">
+                    <span id="days"></span>
+                    <p>Ngày</p>
+                </div>
+                <div class="time-unit">
+                    <span id="hours"></span>
+                    <p>Giờ</p>
+                </div>
+                <div class="time-unit">
+                    <span id="minutes"></span>
+                    <p>Phút</p>
+                </div>
+                <div class="time-unit">
+                    <span id="seconds"></span>
+                    <p>Giây</p>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+        <div class="form-videoNe">
+            <video id="endVideo" loop>
+                <source th:src="@{/video/VideoNe.mp4}" type="video/mp4">
+            </video>
+        </div>
+        <!--  -->
+        <form action="#">
+            <label for="decision">Bạn sẽ đến chung vui cùng chúng mình chứ?</label>
+            <select id="decision" name="decision" required>
+                <option disabled selected value="">Ấn vào đây nè!!!</option>
+                <option value="den">Mình sẽ tham dự</option>
+                <option value="se-den">Tất nhiên là mình sẽ tham dự rồi</option>
+                <option value="chan-chan-den">Rất tiết hôm đó mình bận mất rồi :((</option>
+            </select>
+            <button type="submit">XÁC NHẬN</button>
+        </form>
+        <!--  -->
+        <div class="qr">
+            <a th:href="@{QR}" class="btn-chuyen-tien">
+                <img style="width: 8%; margin: 0 60px 0 0;" th:src="@{/src/img/BIDV.jpg}" alt="">
+                <p style="text-decoration: underline;">Hoàng Phạm Phục My</p>
+            </a>
+        </div>
+    </div>
+
+</div>
+<!-- partial -->
+<script th:src='@{https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js}'></script>
+<script th:src='@{https://cdn.jsdelivr.net/gh/timoschaefer/jQuery-Sakura/jquery-sakura.min.js}'></script>
+<script th:src="@{https://cdn.jsdelivr.net/npm/sakura-js@1.1.1/dist/sakura.min.js}"></script>
+<script th:src="@{/src/js/script.js}"></script>
+<script defer>
+    var sakura = new Sakura('.root', {
+      colors: [
+        {
+          gradientColorStart: 'rgba(255, 183, 197, 0.9)',
+          gradientColorEnd: 'rgba(255, 197, 208, 0.9)',
+          gradientColorDegree: 120,
+        },
+        {
+          gradientColorStart: 'rgba(255,189,188)',
+          gradientColorEnd: 'rgba(227,170,181)',
+          gradientColorDegree: 120,
+        },
+        {
+          gradientColorStart: 'rgba(212,152,163)',
+          gradientColorEnd: 'rgba(242,185,196)',
+          gradientColorDegree: 120,
+        },
+      ],
+      delay: 200,
+    });
+  </script>
+</body>
+
+</html>

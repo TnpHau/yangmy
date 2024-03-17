@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR chuyển tiền</title>
+    <style>
+        html,
+        body {
+            background-color: #f8e5f085;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img {
+            width: 300px;
+        }
+
+        @media only screen and (max-width: 1000px) {
+            img {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <img th:src="@{src/img/QR.png}" alt="QR Code">
+</body>
+
+</html>
