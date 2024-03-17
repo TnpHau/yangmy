@@ -53,17 +53,23 @@
     }
 
     .table td a {
-        color: #007bff;
+        color: #3880ff;
         text-decoration: none;
         margin-right: 10px;
+        padding: 6px;
+        border-radius: 30px;
     }
 
     .table td a:hover {
-        text-decoration: underline;
+        color: #e75e5e;
     }
 
     .confirm-delete {
         display: none;
+        color: red;
+    }
+
+    .red {
         color: red;
     }
 </style>
@@ -86,9 +92,11 @@
       <td>
         <a th:href="@{/{id}(id=${user.id})}">Detail</a>
       </td>
-      <td th:text="${user.decision}"></td>
+      <td th:class="${user.decision == 'Rất tiết hôm đó mình bận mất rồi :((' ? 'red' : ''}">
+        <span th:text="${user.decision}"></span>
+      </td>
       <td>
-         <a th:href="@{/users/delete/{id}(id=${user.id})}" onclick="return confirm('Are you sure?')">Delete</a>
+         <a th:href="@{/users/delete/{id}(id=${user.id})}" onclick="return confirm('Are you sure?')" style="border: 1px solid;">Delete</a>
       </td>
     </tr>
   </table>
