@@ -1,37 +1,60 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
-    <title>My App</title>
-    <link th:fragment="link-css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:fragment="link-css" rel="stylesheet" th:href="@{/css/homePage.css}">
+    <title>Wedding Yang My</title>
 </head>
+
 <body>
 <header th:fragment="header">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/home">TaDa</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbar SupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbar SupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/home">Home</a>
-                    </li>
-                    <li class="nav-item"> <a class="nav-link" href="/users">List User</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/users/add">Add User</a></li>
-                </ul>
-            </div>
-        </div>
+    <img src="" alt="">
+    <nav>
+        <ul class="navlinks">
+            <li class="items"><a href="/home">Trang chủ</a></li>
+            <li class="items"><a href="/users">Danh sách khách mời</a></li>
+            <li class="items"><a href="/users/add">Thêm khách mời</a></li>
+            <li>
+                <form class="d-flex" action="/logout" method="post">
+                    <button>Đăng xuất</button>
+                </form>
+            </li>
+            <li onclick="showSidebar()"><a href="#"><ion-icon name="menu-outline"></ion-icon></a></li>
+        </ul>
+        <ul class="sidebar">
+            <li onclick="closeSidebar()"><a href="#"><ion-icon name="close-outline"></ion-icon></a></li>
+            <li><a href="/home">Trang chủ</a></li>
+            <li><a href="/users">Danh sách khách mời</a></li>
+            <li><a href="/users/add">Thêm khách mời</a></li>
+        </ul>
     </nav>
 </header>
 <div th:insert="~{::${content}}">
-    <!-- NỘI DUNG TRANG CON -->
+
 </div>
 <footer th:fragment="footer">
     <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </footer>
+<script>
+        function showSidebar() {
+            const sidebar = document.querySelector(".sidebar");
+            sidebar.style.display = 'flex';
+            setTimeout(() => {
+                sidebar.style.transform = 'translateX(0)';
+            }, 10);
+        }
+
+        function closeSidebar() {
+            const sidebar = document.querySelector(".sidebar");
+            sidebar.style.transform = 'translateX(100%)';
+            setTimeout(() => {
+                sidebar.style.display = 'none';
+            }, 300);
+        }
+    </script>
 </body>
 </html>

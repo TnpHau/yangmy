@@ -4,6 +4,71 @@
   <meta charset="UTF-8">
   <th:block th:replace="layout :: link-css"></th:block>
   <title>Add User</title>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f7f7f7;
+      }
+
+      .container {
+          max-width: 90%;
+          margin: 20px auto;
+          padding: 20px;
+          background-color: #fff;
+          border-radius: 5px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          font-size: xx-large;
+      }
+
+      .container h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #ff0000c2;
+      }
+
+      .form-group {
+          margin-bottom: 20px;
+      }
+
+      .form-group label {
+          display: block;
+          font-weight: bold;
+          margin-bottom: 5px;
+      }
+
+      .form-group input[type="text"] {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 3px;
+      }
+
+      .btn-primary {
+          background-color: #007bff;
+          color: #fff;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 3px;
+          cursor: pointer;
+          text-decoration: none;
+          font-size: xx-large;
+      }
+
+      .btn-primary:hover {
+          background-color: #0056b3;
+      }
+
+      .btn-link {
+          color: #007bff;
+          text-decoration: none;
+      }
+
+      .btn-link:hover {
+          text-decoration: underline;
+      }
+  </style>
 </head>
 <body>
 <th:block th:replace="layout :: header"></th:block>
@@ -11,14 +76,14 @@
   <h1>Add User</h1>
   <form th:action="@{/users/add}" th:object="${user}" method="post">
 
-    <div class="col-6 mb-3">
-      <label class="form-label" for="name">name:</label>
-      <input class="form-control" type="text" th:field="*{name}" id="name">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" th:field="*{name}" id="name" placeholder="Enter name">
     </div>
-    <input class="btn btn-primary" type="submit" value="Save">
+    <input type="submit" class="btn-primary" value="Save">
   </form>
   <br>
-  <a th:href="@{/users}">Back to list</a>
+  <a th:href="@{/users}" class="btn-link">Back to list</a>
 </div>
 <th:block th:replace="layout :: footer"></th:block>
 </body>

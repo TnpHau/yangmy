@@ -123,15 +123,18 @@
             </video>
         </div>
         <!--  -->
-        <form action="#">
+        <form th:action="@{${user.id}}" method="post">
             <label for="decision">Bạn sẽ đến chung vui cùng chúng mình chứ?</label>
             <select id="decision" name="decision" required>
                 <option disabled selected value="">Ấn vào đây nè!!!</option>
-                <option value="den">Mình sẽ tham dự</option>
-                <option value="se-den">Tất nhiên là mình sẽ tham dự rồi</option>
-                <option value="chan-chan-den">Rất tiết hôm đó mình bận mất rồi :((</option>
+                <option value="Mình sẽ tham dự">Mình sẽ tham dự</option>
+                <option value="Tất nhiên là mình sẽ tham dự rồi">Tất nhiên là mình sẽ tham dự rồi</option>
+                <option value="Rất tiết hôm đó mình bận mất rồi :((">Rất tiết hôm đó mình bận mất rồi :((</option>
             </select>
             <button type="submit">XÁC NHẬN</button>
+            <div th:if="${message}" class="alert alert-success">
+                <h1 style="text-align: center;color: #ff0000a3;" th:text="${message}"></h1>
+            </div>
         </form>
         <!--  -->
         <div class="qr">

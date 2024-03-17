@@ -1,5 +1,6 @@
 package wedding.yangmy.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,13 +18,19 @@ public class UserController {
     private UserService userService;
 
     @GetMapping
-    public String showAllUsers(Model model) {
+    public String showAllUsers(Model model, HttpServletRequest request) {
+        if (request.getSession().getAttribute("loggedInUser") == null) {
+            return "redirect:/error";
+        }
         List<User> users = userService.getAllUsers();
         model.addAttribute("users", users);
         return "user/list";
     }
     @GetMapping("/add")
-    public String addUserForm (Model model) {
+    public String addUserForm (Model model, HttpServletRequest request) {
+        if (request.getSession().getAttribute("loggedInUser") == null) {
+            return "redirect:/error";
+        }
         model.addAttribute(  "user", new User());
         return "user/add";
     }
