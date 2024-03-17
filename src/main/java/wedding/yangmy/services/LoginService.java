@@ -13,11 +13,11 @@ public class LoginService {
     private LoginRepository loginRepository;
     @PostConstruct
     public void initDefaultAccount() {
-        Login defaultUser = loginRepository.findByUsername("my");
+        Login defaultUser = loginRepository.findByUsername("phucmy");
         if (defaultUser == null) {
             defaultUser = new Login();
-            defaultUser.setUsername("my");
-            defaultUser.setPassword("1");
+            defaultUser.setUsername("phucmy");
+            defaultUser.setPassword("Aa@123");
             loginRepository.save(defaultUser);
         }
     }

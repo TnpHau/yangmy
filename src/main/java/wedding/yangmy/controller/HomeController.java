@@ -9,6 +9,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import wedding.yangmy.entity.User;
 import wedding.yangmy.services.UserService;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/")
 public class HomeController {
@@ -22,11 +24,13 @@ public class HomeController {
     }
 
     @GetMapping(value = {"/home", "/"})
-    public String home(HttpServletRequest request) {
+    public String showAllUsers(Model model, HttpServletRequest request) {
         if (request.getSession().getAttribute("loggedInUser") == null) {
             return "redirect:/error";
         }
-        return "home/index";
+        List<User> users = userService.getAllUsers();
+        model.addAttribute("users", users);
+        return "user/list";
     }
 
     @GetMapping("/QR")

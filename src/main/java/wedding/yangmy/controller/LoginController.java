@@ -19,10 +19,8 @@ public class LoginController {
 
     @GetMapping("/login")
     public String home(HttpServletRequest request) {
-        // Kiểm tra xem người dùng đã đăng nhập hay chưa
         if (request.getSession().getAttribute("loggedInUser") != null) {
-            // Đã đăng nhập, chuyển hướng đến trang chính
-            return "redirect:/home";
+            return "redirect:/users";
         }
         return "login";
     }
@@ -32,7 +30,7 @@ public class LoginController {
         Login user = loginService.findByUsername(username);
         if (user != null && user.getPassword().equals(password)) {
             request.getSession().setAttribute("loggedInUser", user);
-            return "redirect:/home";
+            return "redirect:/users";
         } else {
             return "redirect:/login?error=true";
         }
