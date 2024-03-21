@@ -199,72 +199,90 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  setInterval(toggleDisplay, 4000);
-});
-
-
 // Xoá webhost
-document.addEventListener('DOMContentLoaded', () => {
   var disclaimer = document.querySelector("img[alt='www.000webhost.com']");
   if (disclaimer) {
     disclaimer.remove();
   }
-});
-// Scroll up and down
-let lastScroll = 0;
-let scrollingDown = true;
 
-window.addEventListener('scroll', function () {
-  const currentScroll = window.scrollY;
-  scrollingDown = currentScroll > lastScroll;
-  lastScroll = currentScroll;
 
-  const windowHeight = window.innerHeight;
-  const Video = document.getElementById('Video').offsetTop;
-  const grapter = document.getElementById('grapter').offsetTop;
-  const end = document.getElementById('end').offsetTop;
-  const endVideo = document.getElementById('endVideo');
-  const tikVideo = document.getElementById('tikVideo');
-  const backgroundMusic = document.getElementById('backgroundMusic');
+    // Scroll up and down
+    let lastScroll = 0;
+    let scrollingDown = true;
 
-  if (scrollingDown) {
-    if (window.scrollY < (Video + windowHeight / 4)) {
-      window.location.hash = '#Video';
-      tikVideo.autoplay = true;
-      tikVideo.play();
-      backgroundMusic.pause();
-    } else if (window.scrollY < (grapter + windowHeight / 4)) {
-      window.location.hash = '#grapter';
-      document.getElementById('enableAutoplayButton').style.display = 'none';
-       document.getElementById('tikVideo').style.display = 'block';
-      endVideo.pause();
-      tikVideo.pause();
-      backgroundMusic.play();
-    } else {
-      endVideo.autoplay = true;
-      endVideo.play();
-      backgroundMusic.pause();
-    }
-  } else {
-    if (window.scrollY >= (end - windowHeight / 4)) {
-      endVideo.autoplay = true;
-      endVideo.play();
-      backgroundMusic.pause();
-    } else if (window.scrollY >= (grapter - windowHeight / 4)) {
-      window.location.hash = '#grapter';
-      document.getElementById('enableAutoplayButton').style.display = 'none';
-      document.getElementById('tikVideo').style.display = 'block';
-      backgroundMusic.play();
-      endVideo.pause();
-      tikVideo.pause();
-    } else {
-      window.location.hash = '#Video';
+    window.addEventListener('scroll', function () {
+      const currentScroll = window.scrollY;
+      scrollingDown = currentScroll > lastScroll;
+      lastScroll = currentScroll;
 
-      tikVideo.autoplay = true;
-      tikVideo.play();
-      backgroundMusic.pause();
-    }
-  }
+      const windowHeight = window.innerHeight;
+      const Video = document.getElementById('Video').offsetTop;
+      const grapter = document.getElementById('grapter').offsetTop;
+      const end = document.getElementById('end').offsetTop;
+      const endVideo = document.getElementById('endVideo');
+      const tikVideo = document.getElementById('tikVideo');
+      const backgroundMusic = document.getElementById('backgroundMusic');
+
+      if (scrollingDown) {
+        if (window.scrollY < (Video + windowHeight / 4)) {
+          window.location.hash = '#Video';
+          tikVideo.autoplay = true;
+          tikVideo.play();
+          backgroundMusic.pause();
+        } else if (window.scrollY < (grapter + windowHeight / 4)) {
+          window.location.hash = '#grapter';
+          document.querySelectorAll('.title img, .title h1, .title h2').forEach(function(el) {
+            el.style.animation = "vanish1 1s ease-in-out forwards";
+          });
+          setTimeout(function () {
+            toggleDisplay();
+            // Thêm hiệu ứng vào .layout-thiep-moi
+            document.querySelectorAll('.layout-thiep-moi').forEach(function (el) {
+              el.style.animation = "vanish 3s ease-in-out forwards";
+            });
+          }, 1000);
+          document.getElementById('enableAutoplayButton').style.display = 'none';
+           document.getElementById('tikVideo').style.display = 'block';
+          endVideo.pause();
+          tikVideo.pause();
+          backgroundMusic.play();
+        } else {
+          endVideo.autoplay = true;
+          endVideo.play();
+          backgroundMusic.pause();
+        }
+      } else {
+        if (window.scrollY >= (end - windowHeight / 4)) {
+          endVideo.autoplay = true;
+          endVideo.play();
+          backgroundMusic.pause();
+        } else if (window.scrollY >= (grapter - windowHeight / 4)) {
+          window.location.hash = '#grapter';
+          document.querySelectorAll('.title img, .title h1, .title h2').forEach(function(el) {
+            el.style.animation = "vanish1 1s ease-in-out forwards";
+          });
+          setTimeout(function () {
+            toggleDisplay();
+            // Thêm hiệu ứng vào .layout-thiep-moi
+            document.querySelectorAll('.layout-thiep-moi').forEach(function (el) {
+              el.style.animation = "vanish 3s ease-in-out forwards";
+            });
+          }, 1000);
+          document.getElementById('enableAutoplayButton').style.display = 'none';
+          document.getElementById('tikVideo').style.display = 'block';
+          backgroundMusic.play();
+          endVideo.pause();
+          tikVideo.pause();
+        } else {
+          window.location.hash = '#Video';
+
+          tikVideo.autoplay = true;
+          tikVideo.play();
+          backgroundMusic.pause();
+        }
+      }
+
+    });
 
 });
 
@@ -275,16 +293,19 @@ function enableAutoplayForSpecificVideo(videoId) {
     var video = document.getElementById(videoId);
     if (video) {
         if (!video.autoplay) {
-            video.style.display = 'block'; // Hiển thị video
+            video.style.display = 'block';
             video.autoplay = true;
-            video.play().then(function () {
-                console.log('Phát video tự động');
-            }).catch(function (error) {
-                console.error('Không thể phát video tự động:', error);
-            });
-            document.getElementById('enableAutoplayButton').style.display = 'none'; // Ẩn nút button
+            setTimeout(function() {
+                video.play().then(function () {
+                    console.log('Phát video tự động');
+                }).catch(function (error) {
+                    console.error('Không thể phát video tự động:', error);
+                });
+            }, 1500);
+            document.getElementById('enableAutoplayButton').style.display = 'none';
         }
     } else {
         console.error('Không tìm thấy video với id:', videoId);
     }
 }
+
