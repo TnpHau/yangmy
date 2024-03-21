@@ -225,34 +225,39 @@ window.addEventListener('scroll', function () {
   const end = document.getElementById('end').offsetTop;
   const endVideo = document.getElementById('endVideo');
   const tikVideo = document.getElementById('tikVideo');
+  const backgroundMusic = document.getElementById('backgroundMusic');
 
   if (scrollingDown) {
     if (window.scrollY < (Video + windowHeight / 4)) {
       window.location.hash = '#Video';
       tikVideo.autoplay = true;
       tikVideo.play();
+      backgroundMusic.pause();
     } else if (window.scrollY < (grapter + windowHeight / 4)) {
       window.location.hash = '#grapter';
       endVideo.pause();
       tikVideo.pause();
-
+      backgroundMusic.play();
     } else {
       endVideo.autoplay = true;
       endVideo.play();
+      backgroundMusic.pause();
     }
   } else {
     if (window.scrollY >= (end - windowHeight / 4)) {
       endVideo.autoplay = true;
       endVideo.play();
+      backgroundMusic.pause();
     } else if (window.scrollY >= (grapter - windowHeight / 4)) {
       window.location.hash = '#grapter';
+      backgroundMusic.play();
       endVideo.pause();
       tikVideo.pause();
-
     } else {
       window.location.hash = '#Video';
       tikVideo.autoplay = true;
       tikVideo.play();
+      backgroundMusic.pause();
     }
   }
 
