@@ -231,16 +231,19 @@ document.addEventListener("DOMContentLoaded", function () {
           backgroundMusic.pause();
         } else if (window.scrollY < (grapter + windowHeight / 4)) {
           window.location.hash = '#grapter';
-          document.querySelectorAll('.title img, .title h1, .title h2').forEach(function(el) {
-            el.style.animation = "vanish1 1s ease-in-out forwards";
-          });
+          setTimeout(function() {
+              document.querySelectorAll('.title img, .title h1, .title h2').forEach(function(el) {
+                  el.style.animation = "vanish1 1s ease-in-out forwards";
+              });
+          }, 1500);
+
           setTimeout(function () {
             toggleDisplay();
             // Thêm hiệu ứng vào .layout-thiep-moi
             document.querySelectorAll('.layout-thiep-moi').forEach(function (el) {
               el.style.animation = "vanish 3s ease-in-out forwards";
             });
-          }, 1000);
+          }, 2500);
           document.getElementById('enableAutoplayButton').style.display = 'none';
            document.getElementById('tikVideo').style.display = 'block';
           endVideo.pause();
@@ -258,16 +261,18 @@ document.addEventListener("DOMContentLoaded", function () {
           backgroundMusic.pause();
         } else if (window.scrollY >= (grapter - windowHeight / 4)) {
           window.location.hash = '#grapter';
-          document.querySelectorAll('.title img, .title h1, .title h2').forEach(function(el) {
-            el.style.animation = "vanish1 1s ease-in-out forwards";
-          });
+          setTimeout(function() {
+              document.querySelectorAll('.title img, .title h1, .title h2').forEach(function(el) {
+                  el.style.animation = "vanish1 1s ease-in-out forwards";
+              });
+          }, 1500);
           setTimeout(function () {
             toggleDisplay();
             // Thêm hiệu ứng vào .layout-thiep-moi
             document.querySelectorAll('.layout-thiep-moi').forEach(function (el) {
               el.style.animation = "vanish 3s ease-in-out forwards";
             });
-          }, 1000);
+          }, 2500);
           document.getElementById('enableAutoplayButton').style.display = 'none';
           document.getElementById('tikVideo').style.display = 'block';
           backgroundMusic.play();
