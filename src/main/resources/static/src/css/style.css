@@ -313,7 +313,7 @@ p {
 }
 
 .layout-video-chibi:nth-child(2) {
-  grid-column: 2/4;
+  grid-column: 1/5;
   grid-row: 1/4;
   display: flex;
   align-items: center;
@@ -449,7 +449,7 @@ p {
   }
 
   .layout-thiep-moi h1 {
-    font-size: 95px;
+    font-size: 85px;
   }
 
   .layout-thiep-moi {
@@ -462,7 +462,7 @@ p {
   }
 
   .layout-video-chibi img {
-    width: 100%;
+    width: 1000px;
     height: auto;
   }
 

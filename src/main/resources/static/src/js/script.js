@@ -235,6 +235,8 @@ window.addEventListener('scroll', function () {
       backgroundMusic.pause();
     } else if (window.scrollY < (grapter + windowHeight / 4)) {
       window.location.hash = '#grapter';
+      document.getElementById('enableAutoplayButton').style.display = 'none';
+       document.getElementById('tikVideo').style.display = 'block';
       endVideo.pause();
       tikVideo.pause();
       backgroundMusic.play();
@@ -250,11 +252,14 @@ window.addEventListener('scroll', function () {
       backgroundMusic.pause();
     } else if (window.scrollY >= (grapter - windowHeight / 4)) {
       window.location.hash = '#grapter';
+      document.getElementById('enableAutoplayButton').style.display = 'none';
+      document.getElementById('tikVideo').style.display = 'block';
       backgroundMusic.play();
       endVideo.pause();
       tikVideo.pause();
     } else {
       window.location.hash = '#Video';
+
       tikVideo.autoplay = true;
       tikVideo.play();
       backgroundMusic.pause();
@@ -262,3 +267,24 @@ window.addEventListener('scroll', function () {
   }
 
 });
+
+
+//
+
+function enableAutoplayForSpecificVideo(videoId) {
+    var video = document.getElementById(videoId);
+    if (video) {
+        if (!video.autoplay) {
+            video.style.display = 'block'; // Hiển thị video
+            video.autoplay = true;
+            video.play().then(function () {
+                console.log('Phát video tự động');
+            }).catch(function (error) {
+                console.error('Không thể phát video tự động:', error);
+            });
+            document.getElementById('enableAutoplayButton').style.display = 'none'; // Ẩn nút button
+        }
+    } else {
+        console.error('Không tìm thấy video với id:', videoId);
+    }
+}
