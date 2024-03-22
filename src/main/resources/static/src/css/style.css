@@ -490,7 +490,7 @@ p {
   }
 
   .container {
-    height: 15vh !important;
+    height: 25vh !important;
   }
 
   form {
@@ -625,3 +625,52 @@ p {
 }
 
 
+@keyframes bayVao1 {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%);
+    }
+
+    50% {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translateX(50%);
+    }
+    }
+
+    @keyframes bayVao2 {
+    0% {
+      opacity: 0;
+      transform: translateX(50%);
+    }
+
+    50% {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translateX(-50%);
+    }
+}
+
+.anhBayBay {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 20px;
+    margin: 0;
+}
+
+.itemBay:first-child img {
+    animation: bayVao1 6s ease-in-out infinite alternate;
+
+}
+
+.itemBay:nth-child(2) img {
+    animation: bayVao2 6s ease-in-out infinite alternate;
+}
