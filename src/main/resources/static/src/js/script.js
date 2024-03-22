@@ -293,24 +293,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //
 
-function enableAutoplayForSpecificVideo(videoId) {
-    var video = document.getElementById(videoId);
-    if (video) {
-        if (!video.autoplay) {
-            video.style.display = 'block';
-            video.autoplay = true;
-            video.controls = false;
-            setTimeout(function() {
-                video.play().then(function () {
-                    console.log('Phát video tự động');
-                }).catch(function (error) {
-                    console.error('Không thể phát video tự động:', error);
-                });
-            }, 1500);
-            document.getElementById('enableAutoplayButton').style.display = 'none';
-        }
-    } else {
-        console.error('Không tìm thấy video với id:', videoId);
-    }
-}
+//function enableAutoplayForSpecificVideo(videoId) {
+//    var video = document.getElementById(videoId);
+//    if (video) {
+//        if (!video.autoplay) {
+//            video.style.display = 'block';
+//            video.autoplay = true;
+//            video.controls = false;
+//            setTimeout(function() {
+//                video.play().then(function () {
+//                    console.log('Phát video tự động');
+//                }).catch(function (error) {
+//                    console.error('Không thể phát video tự động:', error);
+//                });
+//            }, 1500);
+//            document.getElementById('enableAutoplayButton').style.display = 'none';
+//        }
+//    } else {
+//        console.error('Không tìm thấy video với id:', videoId);
+//    }
+//}
 
