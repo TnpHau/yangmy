@@ -8,15 +8,6 @@
     <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css}">
     <link rel="stylesheet" th:href="@{/src/css/style.css}">
     <link rel="stylesheet" th:href="@{/src/css/sakura.css}">
-    <style>
-        video::-webkit-media-controls-fullscreen-button {
-            display: none !important;
-        }
-        #tikVideo::-webkit-media-controls {
-          display: none !important;
-        }
-    </style>
-
 </head>
 
 <body>
@@ -29,7 +20,7 @@
                 </div>
             </div>
             <div class="layout-video-chibi">
-                <video id="tikVideo" style="display: none;" loop controls disablePictureInPicture>
+                <video id="tikVideo" style="display: none;" loop controls="play pause">
                     <source th:src="@{/video/wedding.mp4}" type="video/mp4">
                 </video>
                 <div id="enableAutoplayButton" onclick="enableAutoplayForSpecificVideo('tikVideo')"
@@ -131,7 +122,7 @@
         </div>
         <!--  -->
         <div class="form-videoNe">
-            <video id="endVideo" loop disablePictureInPicture controls>
+            <video id="endVideo" loop controls="play pause">
                 <source th:src="@{/video/VideoNe.mp4}" type="video/mp4">
             </video>
         </div>

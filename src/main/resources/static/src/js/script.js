@@ -288,12 +288,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
     });
-
-
-    const videoElement = document.getElementById("tikVideo");
-    const videoElement1 = document.getElementById("endVideo");
-    videoElement.controls = false;
-    videoElement1.controls = false;
 });
 
 
@@ -319,16 +313,4 @@ function enableAutoplayForSpecificVideo(videoId) {
         console.error('Không tìm thấy video với id:', videoId);
     }
 }
-
-document.getElementById('tikVideo').addEventListener('fullscreenchange', function(event) {
-    if (document.fullscreenElement) {
-        document.exitFullscreen();
-    }
-});
-
-document.getElementById('endVideo').addEventListener('fullscreenchange', function(event) {
-    if (document.fullscreenElement) {
-        document.exitFullscreen();
-    }
-});
 
