@@ -245,7 +245,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
           }, 2500);
           document.getElementById('enableAutoplayButton').style.display = 'none';
-           document.getElementById('tikVideo').style.display = 'block';
+          document.getElementById('tikVideo').style.display = 'block';
           endVideo.pause();
           tikVideo.pause();
           backgroundMusic.play();
@@ -290,27 +290,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
-//
-
-//function enableAutoplayForSpecificVideo(videoId) {
-//    var video = document.getElementById(videoId);
-//    if (video) {
-//        if (!video.autoplay) {
-//            video.style.display = 'block';
-//            video.autoplay = true;
-//            video.controls = false;
-//            setTimeout(function() {
-//                video.play().then(function () {
-//                    console.log('Phát video tự động');
-//                }).catch(function (error) {
-//                    console.error('Không thể phát video tự động:', error);
-//                });
-//            }, 1500);
-//            document.getElementById('enableAutoplayButton').style.display = 'none';
-//        }
-//    } else {
-//        console.error('Không tìm thấy video với id:', videoId);
-//    }
-//}
+function enableAutoplayForSpecificVideo(videoId) {
+    var video = document.getElementById(videoId);
+    document.getElementById('enableAutoplayButton').style.display = 'none';
+    video.style.display = 'block';
+    setTimeout(function() {
+        video.play()
+    }, 1500);
+}
 
