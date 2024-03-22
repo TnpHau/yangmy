@@ -226,7 +226,6 @@ document.addEventListener("DOMContentLoaded", function () {
       if (scrollingDown) {
         if (window.scrollY < (Video + windowHeight / 4)) {
           window.location.hash = '#Video';
-          tikVideo.autoplay = true;
           tikVideo.play();
           backgroundMusic.pause();
         } else if (window.scrollY < (grapter + windowHeight / 4)) {
@@ -250,13 +249,11 @@ document.addEventListener("DOMContentLoaded", function () {
           tikVideo.pause();
           backgroundMusic.play();
         } else {
-          endVideo.autoplay = true;
           endVideo.play();
           backgroundMusic.pause();
         }
       } else {
         if (window.scrollY >= (end - windowHeight / 4)) {
-          endVideo.autoplay = true;
           endVideo.play();
           backgroundMusic.pause();
         } else if (window.scrollY >= (grapter - windowHeight / 4)) {
@@ -280,8 +277,6 @@ document.addEventListener("DOMContentLoaded", function () {
           tikVideo.pause();
         } else {
           window.location.hash = '#Video';
-
-          tikVideo.autoplay = true;
           tikVideo.play();
           backgroundMusic.pause();
         }
