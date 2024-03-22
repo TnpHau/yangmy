@@ -226,6 +226,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (scrollingDown) {
         if (window.scrollY < (Video + windowHeight / 4)) {
           window.location.hash = '#Video';
+          tikVideo.autoplay = true;
           tikVideo.play();
           backgroundMusic.pause();
         } else if (window.scrollY < (grapter + windowHeight / 4)) {
@@ -249,11 +250,13 @@ document.addEventListener("DOMContentLoaded", function () {
           tikVideo.pause();
           backgroundMusic.play();
         } else {
+          endVideo.autoplay = true;
           endVideo.play();
           backgroundMusic.pause();
         }
       } else {
         if (window.scrollY >= (end - windowHeight / 4)) {
+          endVideo.autoplay = true;
           endVideo.play();
           backgroundMusic.pause();
         } else if (window.scrollY >= (grapter - windowHeight / 4)) {
@@ -277,6 +280,8 @@ document.addEventListener("DOMContentLoaded", function () {
           tikVideo.pause();
         } else {
           window.location.hash = '#Video';
+
+          tikVideo.autoplay = true;
           tikVideo.play();
           backgroundMusic.pause();
         }
@@ -284,6 +289,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
+
+    const videoElement = document.getElementById("tikVideo");
+    const videoElement1 = document.getElementById("endVideo");
+    videoElement.controls = false;
+    videoElement1.controls = false;
 });
 
 
@@ -294,6 +304,7 @@ function enableAutoplayForSpecificVideo(videoId) {
     if (video) {
         if (!video.autoplay) {
             video.style.display = 'block';
+            video.autoplay = true;
             setTimeout(function() {
                 video.play().then(function () {
                     console.log('Phát video tự động');
@@ -319,3 +330,4 @@ document.getElementById('endVideo').addEventListener('fullscreenchange', functio
         document.exitFullscreen();
     }
 });
+

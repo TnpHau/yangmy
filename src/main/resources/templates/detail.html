@@ -12,6 +12,9 @@
         video::-webkit-media-controls-fullscreen-button {
             display: none !important;
         }
+        .hide-controls::-webkit-media-controls {
+          display: none;
+        }
     </style>
 
 </head>
@@ -27,7 +30,7 @@
             </div>
             <div class="layout-video-chibi">
                 <video id="tikVideo" style="display: none;" loop disablePictureInPicture>
-                    <source th:src="@{/video/wedding.mp4}">
+                    <source th:src="@{/video/wedding.mp4}" type="video/mp4">
                 </video>
                 <div id="enableAutoplayButton" onclick="enableAutoplayForSpecificVideo('tikVideo')"
                      style="display: flex; align-items: center; flex-direction: column-reverse;">
