@@ -314,3 +314,14 @@ function enableAutoplayForSpecificVideo(videoId) {
     }
 }
 
+document.getElementById('tikVideo').addEventListener('fullscreenchange', function(event) {
+    if (document.fullscreenElement) {
+        document.exitFullscreen();
+    }
+});
+
+document.getElementById('endVideo').addEventListener('fullscreenchange', function(event) {
+    if (document.fullscreenElement) {
+        document.exitFullscreen();
+    }
+});
