@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="layout-video-chibi">
-                <video id="tikVideo" style="display: none;" loop>
+                <video id="tikVideo" style="display: none;" loop disablePictureInPicture>
                     <source th:src="@{/video/wedding.mp4}" type="video/mp4">
                 </video>
                 <div id="enableAutoplayButton" onclick="enableAutoplayForSpecificVideo('tikVideo')"
@@ -128,7 +128,7 @@
         </div>
         <!--  -->
         <div class="form-videoNe">
-            <video id="endVideo" loop>
+            <video id="endVideo" loop disablePictureInPicture>
                 <source th:src="@{/video/VideoNe.mp4}" type="video/mp4">
             </video>
         </div>
