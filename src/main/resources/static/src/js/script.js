@@ -294,7 +294,6 @@ function enableAutoplayForSpecificVideo(videoId) {
     if (video) {
         if (!video.autoplay) {
             video.style.display = 'block';
-            video.autoplay = true;
             setTimeout(function() {
                 video.play().then(function () {
                     console.log('Phát video tự động');
