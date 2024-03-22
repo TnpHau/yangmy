@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
       layoutThiepMoi.style.display = "grid";
     }
   };
-
+    document.getElementById('tikVideo').style.display = 'block';
 // Xoá webhost
   var disclaimer = document.querySelector("img[alt='www.000webhost.com']");
   if (disclaimer) {
@@ -280,7 +280,6 @@ document.addEventListener("DOMContentLoaded", function () {
           tikVideo.pause();
         } else {
           window.location.hash = '#Video';
-
           tikVideo.autoplay = true;
           tikVideo.play();
           backgroundMusic.pause();
@@ -290,12 +289,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-function enableAutoplayForSpecificVideo(videoId) {
-    var video = document.getElementById(videoId);
-    document.getElementById('enableAutoplayButton').style.display = 'none';
-    video.style.display = 'block';
-    setTimeout(function() {
-        video.play()
-    }, 1500);
-}
+//function enableAutoplayForSpecificVideo(videoId) {
+//    var video = document.getElementById(videoId) video.style.display = 'block';;
+//    document.getElementById('enableAutoplayButton').style.display = 'none';
+//
+//
+//    setTimeout(function() {
+//        video.play()
+//    }, 1500);
+//}
 
