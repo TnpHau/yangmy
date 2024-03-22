@@ -365,5 +365,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize both videos with their respective sources
   initializeVideo('tikVideo', '/video/wedding.m3u8');
-  initializeVideo('endVideo', '/video/videoNe.m3u8');
+  initializeVideo('endVideo', '/video/videone.m3u8');
 });
