@@ -24,7 +24,7 @@
     <div id="Video">
         <div class="video-chibi">
             <div class="layout-video-chibi">
-                <video id="tikVideo" loop>
+                <video id="tikVideo" loop playsinline>
 
                 </video>
                 <div id="enableAutoplayButton" onclick="enableAutoplayForSpecificVideo('tikVideo')"
@@ -104,7 +104,7 @@
         </div>
 
     </div>
-      <audio id="backgroundMusic" loop>
+      <audio id="backgroundMusic" loop >
             <source th:src="@{video/I_Do.mp3}" type="audio/mp3">
       </audio>
     <!--  -->
@@ -133,7 +133,7 @@
         </div>
         <!--  -->
         <div class="form-videoNe">
-            <video id="endVideo" loop>
+            <video id="endVideo" loop playsinline>
 <!--                <source th:src="@{/video/VideoNe.mp4}" type="video/mp4">-->
             </video>
         </div>
