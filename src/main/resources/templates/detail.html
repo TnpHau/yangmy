@@ -13,7 +13,7 @@
             display: none !important;
         }
         #tikVideo::-webkit-media-controls {
-          display: none;
+          display: none !important;
         }
     </style>
 
@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="layout-video-chibi">
-                <video id="tikVideo" style="display: none;" loop disablePictureInPicture>
+                <video id="tikVideo" style="display: none; controls: none;" loop disablePictureInPicture>
                     <source th:src="@{/video/wedding.mp4}" type="video/mp4">
                 </video>
                 <div id="enableAutoplayButton" onclick="enableAutoplayForSpecificVideo('tikVideo')"
