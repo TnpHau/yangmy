@@ -306,13 +306,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
-
-    function setHeightToEmptyForPlyrElements() {
-        var plyrElements = document.querySelectorAll('.plyr audio, .plyr iframe, .plyr video');
-        plyrElements.forEach(function(element) {
-            element.style.height = '1';
-        });
-    }
+    tikVideo.addEventListener('ended', function() {
+        window.location.hash = '#grapter';
+    });
 });
 
 
