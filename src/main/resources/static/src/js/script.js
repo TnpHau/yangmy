@@ -229,6 +229,9 @@ document.addEventListener("DOMContentLoaded", function () {
           tikVideo.autoplay = true;
           tikVideo.play();
           backgroundMusic.pause();
+          tikVideo.addEventListener('ended', function() {
+            window.location.hash = '#grapter';
+          });
         } else if (window.scrollY < (grapter + windowHeight / 4)) {
           window.location.hash = '#grapter';
           setTimeout(function() {
@@ -259,7 +262,6 @@ document.addEventListener("DOMContentLoaded", function () {
           }
           endVideo.autoplay = true;
           endVideo.play();
-          backgroundMusic.pause();
         }
       } else {
         if (window.scrollY >= (end - windowHeight / 4)) {
@@ -269,7 +271,6 @@ document.addEventListener("DOMContentLoaded", function () {
           }
           endVideo.autoplay = true;
           endVideo.play();
-          backgroundMusic.pause();
         } else if (window.scrollY >= (grapter - windowHeight / 4)) {
           window.location.hash = '#grapter';
           setTimeout(function() {
@@ -297,6 +298,9 @@ document.addEventListener("DOMContentLoaded", function () {
           tikVideo.autoplay = true;
           tikVideo.play();
           backgroundMusic.pause();
+          tikVideo.addEventListener('ended', function() {
+              window.location.hash = '#grapter';
+          });
         }
       }
 
@@ -310,6 +314,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
 
 function enableAutoplayForSpecificVideo(videoId) {
     var video = document.getElementById(videoId);
