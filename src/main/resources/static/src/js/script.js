@@ -304,6 +304,7 @@ function enableAutoplayForSpecificVideo(videoId) {
     if (video) {
         if (!video.autoplay) {
             video.style.display = 'block';
+            video.controls = false;
             video.autoplay = true;
             setTimeout(function() {
                 video.play().then(function () {
