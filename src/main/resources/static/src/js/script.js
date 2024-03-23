@@ -234,12 +234,14 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         } else if (window.scrollY < (grapter + windowHeight / 4)) {
           window.location.hash = '#grapter';
+          endVideo.pause();
+          tikVideo.pause();
+          backgroundMusic.play();
           setTimeout(function() {
               document.querySelectorAll('.title img, .title h1, .title h2').forEach(function(el) {
                   el.style.animation = "vanish1 1s ease-in-out forwards";
               });
           }, 1500);
-
           setTimeout(function () {
             toggleDisplay();
             // Thêm hiệu ứng vào .layout-thiep-moi
@@ -249,9 +251,6 @@ document.addEventListener("DOMContentLoaded", function () {
           }, 2500);
           document.getElementById('enableAutoplayButton').style.display = 'none';
           document.getElementById('tikVideo').style.display = 'block';
-          endVideo.pause();
-          tikVideo.pause();
-          backgroundMusic.play();
         } else {
           document.getElementById('tikVideo').style.display = 'block';
           endVideo.autoplay = true;
@@ -264,6 +263,9 @@ document.addEventListener("DOMContentLoaded", function () {
           endVideo.play();
         } else if (window.scrollY >= (grapter - windowHeight / 4)) {
           window.location.hash = '#grapter';
+          backgroundMusic.play();
+          endVideo.pause();
+          tikVideo.pause();
           setTimeout(function() {
               document.querySelectorAll('.title img, .title h1, .title h2').forEach(function(el) {
                   el.style.animation = "vanish1 1s ease-in-out forwards";
@@ -278,9 +280,6 @@ document.addEventListener("DOMContentLoaded", function () {
           }, 2500);
           document.getElementById('enableAutoplayButton').style.display = 'none';
           document.getElementById('tikVideo').style.display = 'block';
-          backgroundMusic.play();
-          endVideo.pause();
-          tikVideo.pause();
         } else {
           window.location.hash = '#Video';
           tikVideo.autoplay = true;
