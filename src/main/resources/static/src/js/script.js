@@ -248,27 +248,18 @@ document.addEventListener("DOMContentLoaded", function () {
             });
           }, 2500);
           document.getElementById('enableAutoplayButton').style.display = 'none';
-          var plyrs = document.getElementsByClassName('plyr');
-          for (var i = 0; i < plyrs.length; i++) {
-              plyrs[i].style.display = 'block';
-          }
+          document.getElementById('tikVideo').style.display = 'block';
           endVideo.pause();
           tikVideo.pause();
           backgroundMusic.play();
         } else {
-          var plyrs = document.getElementsByClassName('plyr');
-          for (var i = 0; i < plyrs.length; i++) {
-              plyrs[i].style.display = 'block';
-          }
+          document.getElementById('tikVideo').style.display = 'block';
           endVideo.autoplay = true;
           endVideo.play();
         }
       } else {
         if (window.scrollY >= (end - windowHeight / 4)) {
-          var plyrs = document.getElementsByClassName('plyr');
-          for (var i = 0; i < plyrs.length; i++) {
-              plyrs[i].style.display = 'block';
-          }
+          document.getElementById('tikVideo').style.display = 'block';
           endVideo.autoplay = true;
           endVideo.play();
         } else if (window.scrollY >= (grapter - windowHeight / 4)) {
@@ -286,10 +277,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
           }, 2500);
           document.getElementById('enableAutoplayButton').style.display = 'none';
-          var plyrs = document.getElementsByClassName('plyr');
-          for (var i = 0; i < plyrs.length; i++) {
-              plyrs[i].style.display = 'block';
-          }
+          document.getElementById('tikVideo').style.display = 'block';
           backgroundMusic.play();
           endVideo.pause();
           tikVideo.pause();
@@ -315,10 +303,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function enableAutoplayForSpecificVideo(videoId) {
     var video = document.getElementById(videoId);
     document.getElementById('enableAutoplayButton').style.display = 'none';
-    var plyrs = document.getElementsByClassName('plyr');
-    for (var i = 0; i < plyrs.length; i++) {
-        plyrs[i].style.display = 'block';
-    }
+    document.getElementById('tikVideo').style.display = 'block';
     setTimeout(function() {
         video.play()
     }, 1500);
@@ -327,44 +312,44 @@ function enableAutoplayForSpecificVideo(videoId) {
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Function to initialize video
-  function initializeVideo(videoElementId, videoSource) {
-    const videoElement = document.getElementById(videoElementId);
-    const defaultOptions = {};
-
-    if (Hls.isSupported()) {
-      const hls = new Hls();
-      hls.loadSource(videoSource);
-      hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
-        const availableQualities = hls.levels.map((level) => level.height);
-        defaultOptions.controls = [
-          // List desired controls here
-          'play',
-          'volume',
-          'fullscreen',
-        ];
-        defaultOptions.quality = {
-          default: availableQualities[0],
-          options: availableQualities,
-          forced: true,
-          onchange: (newQuality) => updateQuality(hls, newQuality),
-        }
-        new Plyr(videoElement, defaultOptions);
-      });
-      hls.attachMedia(videoElement);
-    }
-
-    function updateQuality(hlsInstance, newQuality) {
-      hlsInstance.levels.forEach((level, levelIndex) => {
-        if (level.height === newQuality) {
-          hlsInstance.currentLevel = levelIndex;
-        }
-      });
-    }
-  }
-
-  // Initialize both videos with their respective sources
-  initializeVideo('tikVideo', '/video/wedding.m3u8');
-  initializeVideo('endVideo', '/video/videone.m3u8');
-});
+//document.addEventListener('DOMContentLoaded', () => {
+//  // Function to initialize video
+//  function initializeVideo(videoElementId, videoSource) {
+//    const videoElement = document.getElementById(videoElementId);
+//    const defaultOptions = {};
+//
+//    if (Hls.isSupported()) {
+//      const hls = new Hls();
+//      hls.loadSource(videoSource);
+//      hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
+//        const availableQualities = hls.levels.map((level) => level.height);
+//        defaultOptions.controls = [
+//          // List desired controls here
+//          'play',
+//          'volume',
+//          'fullscreen',
+//        ];
+//        defaultOptions.quality = {
+//          default: availableQualities[0],
+//          options: availableQualities,
+//          forced: true,
+//          onchange: (newQuality) => updateQuality(hls, newQuality),
+//        }
+//        new Plyr(videoElement, defaultOptions);
+//      });
+//      hls.attachMedia(videoElement);
+//    }
+//
+//    function updateQuality(hlsInstance, newQuality) {
+//      hlsInstance.levels.forEach((level, levelIndex) => {
+//        if (level.height === newQuality) {
+//          hlsInstance.currentLevel = levelIndex;
+//        }
+//      });
+//    }
+//  }
+//
+//  // Initialize both videos with their respective sources
+//  initializeVideo('tikVideo', '/video/wedding.m3u8');
+//  initializeVideo('endVideo', '/video/videone.m3u8');
+//});
