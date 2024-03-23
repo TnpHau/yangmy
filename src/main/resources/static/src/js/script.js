@@ -1,23 +1,27 @@
 // Đồng hồ
-const deadline = new Date("2024-04-20T09:00:00").getTime();
+const deadline = new Date("2024-04-20T11:00:00").getTime();
 
 const updateCountdown = () => {
   const now = new Date().getTime();
   const distance = deadline - now;
 
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  document.getElementById("days").innerHTML = days;
-  document.getElementById("hours").innerHTML = hours;
-  document.getElementById("minutes").innerHTML = minutes;
-  document.getElementById("seconds").innerHTML = seconds;
-
-  if (distance < 0) {
+  if (distance <= 0) {
     clearInterval(interval);
-    document.getElementById("countdown").innerHTML = "Đã đến ngày 05/06/2024!";
+    document.getElementById("demNguoc").innerHTML = "Đã đến ngày";
+    document.getElementById("days").innerHTML = 0;
+    document.getElementById("hours").innerHTML = 0;
+    document.getElementById("minutes").innerHTML = 0;
+    document.getElementById("seconds").innerHTML = 0;
+  } else {
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
   }
 };
 
