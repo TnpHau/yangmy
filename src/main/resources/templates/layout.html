@@ -16,6 +16,12 @@
             <li class="items"><a href="/users">Danh sách khách mời</a></li>
             <li class="items"><a href="/users/add">Thêm khách mời</a></li>
             <li>
+                <form action="/users/search" method="get">
+                    <input type="text" style="padding: 10px;border: 1px solid #ccc;border-radius: 5px;font-size: 16px;width: 400px;margin-right: 10px;" name="name" placeholder="Nhập tên...">
+                    <button style="padding: 10px 20px;background-color: #4CAF50;color: white;border: none;border-radius: 5px;cursor: pointer;font-size: 16px;transition: background-color 0.3s ease;" type="submit">Tìm kiếm</button>
+                </form>
+            </li>
+            <li>
                 <form class="d-flex" action="/logout" method="post">
                     <button>Đăng xuất</button>
                 </form>

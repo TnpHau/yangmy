@@ -26,6 +26,14 @@ public class UserController {
         model.addAttribute("users", users);
         return "user/list";
     }
+
+    @GetMapping("/search")
+    public String searchUsersByName(@RequestParam("name") String name, Model model) {
+        List<User> users = userService.findUsersByName(name);
+        model.addAttribute("users", users);
+        return "user/list";
+    }
+
     @GetMapping("/add")
     public String addUserForm (Model model, HttpServletRequest request) {
         if (request.getSession().getAttribute("loggedInUser") == null) {

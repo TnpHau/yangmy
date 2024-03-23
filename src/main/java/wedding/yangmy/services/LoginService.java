@@ -11,14 +11,16 @@ public class LoginService {
 
     @Autowired
     private LoginRepository loginRepository;
+    private boolean initialized = false;
+
     @PostConstruct
     public void initDefaultAccount() {
-        Login defaultUser = loginRepository.findByUsername("phucmy");
-        if (defaultUser == null) {
-            defaultUser = new Login();
+        if (!initialized && loginRepository.count() == 0) {
+            Login defaultUser = new Login();
             defaultUser.setUsername("phucmy");
             defaultUser.setPassword("Aa@123");
             loginRepository.save(defaultUser);
+            initialized = true;
         }
     }
 

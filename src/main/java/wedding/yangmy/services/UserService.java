@@ -37,4 +37,8 @@ public class UserService {
         userRepository.save(user);
     }
 
+    public List<User> findUsersByName(String name) {
+        return userRepository.findByNameContainingIgnoreCase(name);
+    }
+
 }
